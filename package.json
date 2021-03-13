@@ -1,0 +1,61 @@
+{
+	"name": "dexter",
+	"version": "0.0.0",
+	"main": "$npm_package_config_src",
+	"private": true,
+	"description": "Pokedex AI Assistant",
+	"keywords": [
+		"chatbot",
+		"chat",
+		"messenger",
+		"pokemon",
+		"pkgo",
+		"pokedex",
+		"professor",
+		"discord",
+		"facebook"
+	],
+	"author": "a.j.studnicky@gmail.com",
+	"contributors": [
+		{
+			"name": "Andrew Studicky",
+			"email": "a.j.studnicky@gmail.com",
+			"url": "https://github.com/Studnicky"
+		}
+	],
+	"license": "UNLICENSED",
+	"config": {
+		"sonar_token": "",
+		"sonar_url": "http://localhost:9000",
+		"sonar_source": "./src/"
+	},
+	"scripts": {
+		"setup": "node ./src/setup/index.js",
+		"start": "node ./src/index.js",
+		"dev": "node-dev ./src/index.js",
+		"debug": "node --inspect-brk=1337  ./src/index.js",
+		"watch": "node-dev --inspect=1337  ./src/index.js",
+		"eslint": "eslint . --env node --cache --no-inline-config",
+		"test": "jest",
+		"test:debug": "JEST_WATCH=1 node --inspect=1337 node_modules/.bin/jest --forceExit --runInBand --detectOpenHandles",
+		"sonarqube": "sonar-scanner -X -Dsonar.projectKey=$npm_package_name -Dsonar.sources=$npm_package_config_sonar_source -Dsonar.exclusions=node_modules/** -Dsonar.host.url=$npm_package_config_sonar_url -Dsonar.login=$npm_package_config_sonar_token"
+	},
+	"dependencies": {
+		"cleverbot": "^1.0.1",
+		"discord.js": "^12",
+		"dotenv": "^8",
+		"game-master": "file:../game_master_fork",
+		"node-fetch": "^2.6.1",
+		"uuid": "^8.3.2"
+	},
+	"devDependencies": {
+		"eslint": "^7",
+		"eslint-plugin-require-path-exists": "^1.1.9",
+		"eslint-plugin-requirejs": "^4.0.1",
+		"node-dev": "^6.2.0"
+	},
+	"//": {
+		"discord.js": "https://discord.js.org/#/docs/main/stable/general/welcome",
+		"inviteBot": "https://discordapp.com/oauth2/authorize?client_id=366916283410808834&scope=bot&permissions=8"
+	}
+}
