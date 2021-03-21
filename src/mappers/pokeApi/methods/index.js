@@ -1,11 +1,13 @@
 const evolutions = require('./evolutions');
-const pokemon = require('./pokemon');
+const defense = require('./defense');
+const offense = require('./offense');
 const types = require('./types');
 const stats = require('./stats');
 
 module.exports = {
 	evolutions,
-	pokemon,
+	defense,
+	offense,
 	types,
 	stats
 };

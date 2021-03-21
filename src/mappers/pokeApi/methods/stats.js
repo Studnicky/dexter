@@ -55,6 +55,7 @@ function discord(pokemon) {
 			})
 			.join(', ')
 	};
+
 	const embed = new Discord.MessageEmbed()
 		.setTitle(`${utils.toCap(pokemon.name)} base stats:`)
 		.setThumbnail(pokemon.sprites.front_default)

@@ -18,6 +18,8 @@ class PokedexController {
 PokedexController.prototype.getArgsFromState = methods.getArgsFromState;
 PokedexController.prototype.fetchEvolutionChain = methods.fetchEvolutionChain;
 PokedexController.prototype.fetchFamily = methods.fetchFamily;
+PokedexController.prototype.fetchDefenseSpread = methods.fetchDefenseSpread;
+PokedexController.prototype.fetchOffenseSpread = methods.fetchOffenseSpread;
 PokedexController.prototype.fetchStats = methods.fetchStats;
 PokedexController.prototype.fetchTypes = methods.fetchTypes;
 

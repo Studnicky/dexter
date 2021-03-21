@@ -1,13 +1,15 @@
 const getArgsFromState = require('./getArgsFromState');
 const fetchEvolutionChain = require('./fetchEvolutionChain');
-const fetchPokemon = require('./fetchPokemon');
+const fetchDefenseSpread = require('./fetchDefenseSpread');
+const fetchOffenseSpread = require('./fetchOffenseSpread');
 const fetchStats = require('./fetchStats');
 const fetchTypes = require('./fetchTypes');
 
 module.exports = {
 	getArgsFromState,
 	fetchEvolutionChain,
-	fetchPokemon,
+	fetchDefenseSpread,
+	fetchOffenseSpread,
 	fetchStats,
 	fetchTypes
 };

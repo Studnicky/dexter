@@ -12,7 +12,8 @@ class PokeapiMapper extends Mapper {
 
 PokeapiMapper.prototype.evolutions = methods.evolutions;
 PokeapiMapper.prototype.family = methods.family;
-PokeapiMapper.prototype.pokemon = methods.pokemon;
+PokeapiMapper.prototype.defense = methods.defense;
+PokeapiMapper.prototype.offense = methods.offense;
 PokeapiMapper.prototype.stats = methods.stats;
 PokeapiMapper.prototype.types = methods.types;
 

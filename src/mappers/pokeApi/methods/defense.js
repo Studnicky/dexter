@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const config = require('../../../../config');
 const utils = require('../utils');
+
 const { splitObjectListByField, sortObjectListByField } = require('../utils');
 
 const types = [
@@ -89,7 +90,7 @@ function convertToPKGORelations(type) {
 
 	return relationsPKGO;
 }
-function discord(types) {
+function discord(pokemon, types) {
 	const typeRelationsList = types.map(convertToPKGORelations).flat();
 	const { offense, defense } = splitObjectListByField(typeRelationsList, 'category');
 
@@ -98,23 +99,25 @@ function discord(types) {
 	const offenseObject = splitObjectListByField(offense, 'source');
 
 	const typesObject = {
-		primary: types[0].name,
-		title: `Type details: ${sortObjectListByField(types, 'name')
-			.sort()
+		primary: pokemon.types.find((type) => {
+			return type.slot === 1;
+		})['type']['name'],
+		title: `Type${pokemon.types.length > 1 ? 's' : ''}:`,
+		body: pokemon.types
 			.map((type) => {
-				return utils.toCap(type.name);
+				return utils.toCap(type.type.name);
 			})
-			.join(' & ')}`
+			.join(', ')
 	};
 
-	const icon = `https://github.com/PokeMiners/pogo_assets/blob/master/Images/Types/POKEMON_TYPE_${typesObject.primary.toUpperCase()}.png?raw=true`;
-
 	const embed = new Discord.MessageEmbed()
-		.setTitle(`${typesObject.title}`)
-		.setThumbnail(icon)
+		.setTitle(`${utils.toCap(pokemon.name)} Defensive Type Chart:`)
+		.setThumbnail(pokemon.sprites.front_default)
 		.setColor(config.theme.typeToColor[typesObject.primary]['color'])
 		.setFooter(`Provided by Pokeapi`, 'https://pokeapi.co/')
 		.setTimestamp();
+
+	embed.addField(typesObject.title, typesObject.body, true);
 
 	for (const [name, types] of Object.entries(splitDefenseObject)) {
 		const title = `${utils.toCap(defenseValueMap[name])} defense against:`;
